@@ -74,17 +74,17 @@ jobs:
       workingDir: '$(Build.SourcesDirectory)/'
       customCommand: 'run test e2e'
 
-## Sekcja Docker push
-#  - task: Docker@2
-#    displayName: Build and push an image to container registry
-#    inputs:
-#      command: buildAndPush
-#      repository: swapi-caching # efektywnie nazwa aplikacji
-#      dockerfile: $(Build.SourcesDirectory)/Dockerfile # wskazanie Dockerfile
-#      containerRegistry: acr-wg #nazwa Service Connection
-#      tags: |
-#        $(Build.BuildNumber) # tag, może być kilka
-#        latest
+# # Sekcja Docker push
+  - task: Docker@2
+    displayName: Build and push an image to container registry
+    inputs:
+      command: buildAndPush
+      repository: swapi-caching # efektywnie nazwa aplikacji
+      dockerfile: $(Build.SourcesDirectory)/Dockerfile # wskazanie Dockerfile
+      containerRegistry: acrcmstwolfiez.azurecr.io #nazwa Service Connection
+      tags: |
+        $(Build.BuildNumber) # tag, może być kilka
+        latest
 
 - job:
   # https://blog.devgenius.io/create-work-item-on-pipeline-failure-in-azure-devops-yaml-pipeline-973bd175166
