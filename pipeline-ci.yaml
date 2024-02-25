@@ -83,7 +83,7 @@ jobs:
       dockerfile: $(Build.SourcesDirectory)/Dockerfile # wskazanie Dockerfile
       containerRegistry: acrcmstwolfiez.azurecr.io #nazwa Service Connection
       tags: |
-        $(Build.BuildNumber) # tag, może być kilka
+        $(Build.BuildNumber)
         latest
 
 - job:
